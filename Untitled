@@ -2,19 +2,23 @@
 
 using namespace std;
 
+// Constructor implicit
 Movie::Movie() : Content() {
     duration = 0;
 }
 
+// Constructor cu parametri
 Movie::Movie(const string& title, const string& genre, int year, double rating, int duration)
     : Content(title, genre, year, rating) {
     this->duration = duration;
 }
 
+// Copy constructor
 Movie::Movie(const Movie& other) : Content(other) {
     duration = other.duration;
 }
 
+// Operator =
 Movie& Movie::operator=(const Movie& other) {
     if (this != &other) {
         Content::operator=(other);
@@ -23,26 +27,6 @@ Movie& Movie::operator=(const Movie& other) {
     return *this;
 }
 
+// Destructor
 Movie::~Movie() {
-}
-
-int Movie::getDuration() const {
-    return duration;
-}
-
-void Movie::setDuration(int duration) {
-    this->duration = duration;
-}
-void Movie::display() const {
-    cout << "Movie:\n";
-    cout << "Title: " << title << endl;
-    cout << "Genre: " << genre << endl;
-    cout << "Year: " << year << endl;
-    cout << "Rating: " << rating << endl;
-    cout << "Duration: " << duration << " min\n";
-}
-
-
-string Movie::getType() const {
-    return "Movie";
 }
